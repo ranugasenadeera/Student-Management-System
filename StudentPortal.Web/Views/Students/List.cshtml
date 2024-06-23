@@ -32,9 +32,9 @@
             </td>
             <td>@student.Email</td>
             <td>
-                <button type="button" class="btn btn-link btn-sm btn-rounded">
+                <a asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id" class="btn btn-link btn-sm btn-rounded">
                     Edit
-                </button>
+                </a>
             </td>
         </tr>
         }
