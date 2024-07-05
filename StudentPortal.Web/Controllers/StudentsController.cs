@@ -28,6 +28,7 @@ namespace StudentPortal.Web.Controllers
                 Name = viewModel.Name,
                 Email = viewModel.Email,
                 Phone = viewModel.Phone,
+                DOB = viewModel.DOB,
                 Subscribed = viewModel.Subscribed
             };
 
@@ -63,6 +64,7 @@ namespace StudentPortal.Web.Controllers
                 student.Name = viewModel.Name;
                 student.Email = viewModel.Email;
                 student.Phone = viewModel.Phone;
+                student.DOB = viewModel.DOB;
                 student.Subscribed = viewModel.Subscribed;
 
                 await dbContext.SaveChangesAsync();
@@ -72,19 +74,42 @@ namespace StudentPortal.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(Student viewModel)
+        [Route("Students/DeleteConfirmed")]
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var student = await dbContext.Students
                 .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
+                .FirstOrDefaultAsync(x => x.Id == id);
 
-            if (student is not null)
+            if (student != null)
             {
-                dbContext.Students.Remove(viewModel);
+                dbContext.Students.Remove(student);
                 await dbContext.SaveChangesAsync();
             }
 
             return RedirectToAction("List", "Students");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SearchStudents(string searchString)
+        {
+            ViewData["CurrentFilter"] = searchString;
+
+            var students = from s in dbContext.Students
+                           select s;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View("List", await students.ToListAsync());
+        }
+
+        private bool StudentExist(Guid id)
+        {
+            return dbContext.Students.Any(e => e.Id == id);
         }
     }
 }

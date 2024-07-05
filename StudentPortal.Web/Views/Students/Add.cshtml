@@ -6,32 +6,39 @@
 
 @model StudentPortal.Web.Models.AddStudentViewModel
 
-<h1>Add Student</h1>
-
-<form method="post">
-
-<div class="mt-3">
-    <label class="form-label">Name</label>
-    <input type="text" class="form-control" asp-for="Name" />
+<div class="container mx-auto my-4 px-4 lg:px-20 flex justify-center">
+    <div class="w-full p-8 my-4 md:px-12 lg:w-9/12 rounded-2xl shadow-2xl">
+        <div class="flex mb-4">
+            <h1 class="font-bold uppercase text-3xl">Add Student</h1>
+        </div>
+        <form method="post">
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
+                <div class="w-full">
+                    <label class="form-label block text-gray-700">Name</label>
+                    <input type="text" class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" asp-for="Name" />
+                </div>
+                <div class="w-full">
+                    <label class="form-label block text-gray-700">Email</label>
+                    <input type="text" class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" asp-for="Email" />
+                </div>
+                <div class="w-full">
+                    <label class="form-label block text-gray-700">Phone number</label>
+                    <input type="text" class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" asp-for="Phone" />
+                </div>
+                <div class="w-full">
+                    <label class="form-label block text-gray-700">Date Of Birth</label>
+                    <input type="date" class="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" asp-for="DOB" />
+                </div>
+            </div>
+            <div class="mt-5">
+                <input type="checkbox" class="form-check-input mr-2" id="Subscribed" asp-for="Subscribed" />
+                <label class="form-check-label text-gray-700" for="Subscribed">Subscribed</label>
+            </div>
+            <div class="my-4 flex justify-content-center">
+                <button type="submit" class="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline">Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
 
-<div class="mt-3">
-    <label class="form-label">Email</label>
-    <input type="text" class="form-control" asp-for="Email"/>
-</div>
 
-<div class="mt-3">
-    <label class="form-label">Phone</label>
-    <input type="text" class="form-control" asp-for="Phone" />
-</div>
-
-<div class="mt-3">
-    <input type="checkbox" class="form-check-input" id="Subscribed" asp-for="Subscribed" />
-    <label class="form-check-label" for="Subscribed">Subscribed</label>
-</div>
-
-<div class="mt-3">
-    <button type = "submit" class="btn btn-primary">Submit</button>
-</div>
-
-</form>

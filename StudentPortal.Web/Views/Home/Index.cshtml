@@ -1,15 +1,60 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!-- Jumbotron -->
+<div class="bg-cover bg-center relative" style="background-image: url('images/home.png'); height: 450px; margin-top: -15px;">
+    <div class="absolute inset-0 flex justify-center items-center">
+        <div class="text-white" style="margin-right: 800px; margin-top: -50px;">
+            <h1 class="mb-5 text-4xl font-bold">Student Management System</h1>
+            <h6 class="mb-3 text-lg">
+                Welcome to the Student Management System. Here you can<br>manage all student records.
+            </h6>
+        </div>
+    </div>
+</div>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col text-center">
-            <h1 class="display-4">Student Management System</h1>
-            <p class="mt-3" style="margin-top: 20px">Welcome to the Student Management System. Here you can manage all student records.</p>
-            <div class="d-flex justify-content-center align-items-center" style="margin-top: 80px">
-                <a asp-controller="Students" asp-action="Add" class="btn btn-primary">Add New Student</a>
+<div class="max-w-7xl mx-auto mt-5 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex flex-col h-full rounded-lg shadow-lg overflow-hidden">
+            <img src="~/images/card1.jpg" class="h-64 w-full object-cover" alt="Skyscrapers" />
+            <div class="flex flex-col flex-grow p-6">
+                <h5 class="text-xl font-semibold mb-2">Add Students</h5>
+                <p class="flex-grow text-gray-700">
+                    Our intuitive interface allows for quick and seamless entry of student information,
+                    ensuring that all necessary details are captured accurately.
+                </p>
+                <div class="mt-4 flex justify-center">
+                    <a asp-area="" asp-controller="Students" asp-action="Add" class="border-1 border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition duration-300">Add</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col h-full rounded-lg shadow-lg overflow-hidden">
+            <img src="~/images/card2.jpg" class="h-64 w-full object-cover" alt="Los Angeles Skyscrapers" />
+            <div class="flex flex-col flex-grow p-6">
+                <h5 class="text-xl font-semibold mb-2">View Students</h5>
+                <p class="flex-grow text-gray-700">
+                    Our comprehensive student database provides detailed information on each student,
+                    personal information and subscription status.
+                </p>
+                <div class="mt-4 flex justify-center">
+                    <a asp-area="" asp-controller="Students" asp-action="List" class="border-1 border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition duration-300">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col h-full rounded-lg shadow-lg overflow-hidden">
+            <img src="~/images/card3.png" class="h-64 w-full object-cover" alt="Palm Springs Road" />
+            <div class="flex flex-col flex-grow p-6">
+                <h5 class="text-xl font-semibold mb-2">Who We Are</h5>
+                <p class="flex-grow text-gray-700">
+                    Learn more about our organization and what we do where we are dedicated to providing
+                    top-notch educational services and support.
+                </p>
+                <div class="mt-4 flex justify-center">
+                    <button class="border-1 border-blue-600 text-blue-600 py-2 px-4 rounded hover:bg-blue-600 hover:text-white transition duration-300">Learn more</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
