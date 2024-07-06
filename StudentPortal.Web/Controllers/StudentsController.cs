@@ -90,12 +90,9 @@ namespace StudentPortal.Web.Controllers
             return RedirectToAction("List", "Students");
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        [HttpGet]
         public async Task<IActionResult> SearchStudents(string searchString)
         {
-            ViewData["CurrentFilter"] = searchString;
-
             var students = from s in dbContext.Students
                            select s;
 
@@ -104,12 +101,15 @@ namespace StudentPortal.Web.Controllers
                 students = students.Where(s => s.Name.Contains(searchString));
             }
 
-            return View("List", await students.ToListAsync());
+            var result = await students.Select(s => new
+            {
+                id = s.Id,
+                name = s.Name,
+                email = s.Email
+            }).ToListAsync();
+
+            return Json(result);
         }
 
-        private bool StudentExist(Guid id)
-        {
-            return dbContext.Students.Any(e => e.Id == id);
-        }
     }
 }
