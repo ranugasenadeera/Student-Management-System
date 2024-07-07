@@ -9,48 +9,72 @@
     <link rel="stylesheet" href="~/StudentPortal.Web.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 4rem; /* Original sidebar width */
+            height: 100vh; /* Full viewport height */
+            overflow-y: auto; /* Enable scrolling if content exceeds height */
+            color: #cbd5e0; /* Example text color */
+            z-index: 1000; /* Ensure sidebar is above other content */
+        }
+
+        .main-content {
+            margin-left: 4rem; /* Same as sidebar width */
+            /* Add padding or other adjustments as needed */
+        }
+        
+    </style>
 </head>
-<body class="flex flex-col min-h-screen">
-    <header class="fixed inset-x-0 top-0 z-30 mx-auto mt-3 w-90 border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl">
-        <div class="px-4">
-            <div class="flex items-center justify-between">
-                <div class="flex shrink-0">
-                    <a aria-current="page" class="flex items-center" href="/">
-                        <img class="h-7 w-auto" src="~/images/logo.png" alt="">
-                        <p class="sr-only text-white">Website Title</p>
-                    </a>
-                </div>
-                <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
-                    <a aria-current="page"
-                       class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-white transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                       href="#">How it works</a>
-                    <a class="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900"
-                       href="#">Pricing</a>
-                </div>
-            </div>
+<body class="d-flex flex-column min-vh-100">
+    <!-- Sidebar -->
+    <div class="sidebar flex flex-col items-center overflow-hidden text-blue-600 bg-gray-900 h-screen fixed">
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="flex items-center justify-center mt-3">
+            <img src="~/images/logo.png" class="h-8 w-full object-cover" alt="Logo" />
+        </a>
+        <div class="flex flex-col items-center mt-3 border-t border-blue-600">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300 @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "bg-gray-600 text-gray-300" : "")">
+                <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                
+            </a>
+            <a asp-area="" asp-controller="Students" asp-action="List" class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300 @(ViewContext.RouteData.Values["Controller"].ToString() == "Students" && ViewContext.RouteData.Values["Action"].ToString() == "List" ? "bg-gray-600 text-gray-300" : "")">
+                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.16 3.2a1 1 0 00.84 0L21 14M12 14l-6.16 3.2a1 1 0 01-.84 0L3 14M21 14v6M3 14v6m18-6a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                
+            </a>
+            <a asp-area="" asp-controller="Home" asp-action="AboutUs" class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300 @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "AboutUs" ? "bg-gray-600 text-gray-300" : "")">
+                <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                
+            </a>
+            <a asp-area="" asp-controller="Home" asp-action="Privacy" class="flex items-center justify-center w-12 h-12 mt-2 rounded hover:bg-gray-700 hover:text-gray-300 @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Privacy" ? "bg-gray-600 text-gray-300" : "")">
+                <svg class="w-6 h-6 stroke-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                </svg>
+                
+            </a>
         </div>
-    </header>
+    </div>
 
-    <script>
-        // JavaScript to handle mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-            mobileMenuButton.setAttribute('aria-expanded', !expanded);
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
+    <!-- Main Content -->
+    <div class="main-content flex-grow pb-3">
+        <main role="main">
+            @RenderBody()
+        </main>
 
+    </div>
 
-    <main role="main" class="flex-grow pb-3">
-        @RenderBody()
-    </main>
-
-    <footer class="mt-5 border-t border-gray-300 text-gray-700 py-4">
+    <footer class="mt-5 bg-white border-t border-gray-300 text-gray-900 py-4 ml-8">
         <div class="container mx-auto text-center">
             &copy; 2024 - StudentPortal.Web -
-            <a href="@Url.Action("Privacy", "Home")" class="text-blue-500 hover:underline">Privacy</a>
+            <a href="@Url.Action("Privacy", "Home")" class="text-blue-900 hover:underline">Privacy</a>
         </div>
     </footer>
 

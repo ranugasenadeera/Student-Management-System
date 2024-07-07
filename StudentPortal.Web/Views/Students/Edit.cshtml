@@ -12,7 +12,7 @@
 }
 else
 {
-    <div class="container mx-auto my-4 px-4 lg:px-20 flex justify-center">
+    <div class="container mx-auto my-4 px-4 lg:px-20 flex justify-center mt-5">
         <div class="w-full lg:w-9/12 flex flex-wrap lg:flex-nowrap rounded-2xl shadow-2xl">
             <!-- Image section -->
             <div class="w-full lg:w-1/2 hidden lg:block">
@@ -48,11 +48,19 @@ else
                         <label class="form-check-label text-gray-700" for="Subscribed">Subscribed</label>
                     </div>
                     <div class="my-4 flex justify-end space-x-8">
-                        <button type="submit" class="uppercase text-sm font-bold tracking-wide bg-blue-600 text-gray-100 p-3 rounded-lg w-32 focus:outline-none focus:shadow-outline">Edit</button>
+                        <button type="submit" class="uppercase border-1 border-gray-600 text-gray-600 py-2 px-4 rounded-3 flex items-center hover:bg-gray-600 hover:text-white transition duration-300">Edit
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3v2a2 2 0 002 2h2l-7 7-7-7h2a2 2 0 002-2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-2a2 2 0 012-2h14a2 2 0 012 2v2" />
+                            </svg>
+                        </button>
                         <button type="button"
                                 onclick="openModal()"
-                                class="uppercase text-sm font-bold tracking-wide bg-red-600 text-gray-100 p-3 rounded-lg w-32 focus:outline-none focus:shadow-outline">
+                                class="uppercase border-1 border-red-600 text-red-600 py-2 px-4 rounded-3 flex items-center hover:bg-red-600 hover:text-white transition duration-300">
                             Delete
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
                         </button>
                     </div>
                 </form>
@@ -70,11 +78,17 @@ else
                 </div>
             </div>
             <div class="bg-gray-60 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                <button type="button" onclick="confirmDelete()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm h-11">
+                <button type="button" onclick="confirmDelete()" class="border-1 border-red-600 text-red-600 py-2 px-4 rounded-3 flex items-center hover:bg-red-600 hover:text-white transition duration-300">
                     Confirm
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
                 </button>
-                <button type="button" onclick="closeModal()" class="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm h-11">
+                <button type="button" onclick="closeModal()" class="mr-3 border-1 border-gray-600 text-gray-600 py-2 px-4 rounded-3 flex items-center hover:bg-gray-600 hover:text-white transition duration-300">
                     Cancel
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 </button>
             </div>
         </div>

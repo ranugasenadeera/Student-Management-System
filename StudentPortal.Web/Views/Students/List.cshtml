@@ -5,10 +5,10 @@
 }
 @model List<StudentPortal.Web.Models.Entities.Student>
 
-<div class="container mx-auto max-w-screen-xl px-4 mt-4">
+<div class="container mx-auto max-w-screen-xl px-4 mt-5">
     <div class="flex justify-between items-center mb-4">
-        <h1 class="text-2xl font-bold">Students</h1>
-        <a asp-area="" asp-controller="Students" asp-action="Add" class="border-1 border-blue-600 text-blue-600 py-2 px-4 rounded flex items-center hover:bg-blue-600 hover:text-white transition duration-300">
+        <h1 class="text-4xl font-bold">Students</h1>
+        <a asp-area="" asp-controller="Students" asp-action="Add" class="border-1 border-gray-700 text-gray-700 py-2 px-4 rounded-3 flex items-center hover:bg-gray-600 hover:text-white transition duration-300">
             Add
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -16,10 +16,16 @@
         </a>
     </div>
 
-    <input type="text" id="searchInput" placeholder="Search by name..." class="w-full p-2 border-2 rounded mb-4 focus:border-blue-600 focus:outline-none">
+    <div class="relative flex items-center mt-5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-3 w-5 h-5 text-gray-400 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search by name..." class="w-full pl-10 pr-4 py-2 border-2 border-gray-400 text-gray-400 rounded focus:border-gray-600 focus:outline-none">
+    </div>
 
-    <table id="studentsTable" class="min-w-full divide-y divide-blue-600 mt-3">
-        <thead class="bg-blue-600 rounded-t-lg">
+    <table id="studentsTable" class="min-w-full divide-y divide-blue-600 mt-4">
+        <thead class="bg-gray-700 rounded-t-lg">
             <tr>
                 <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider rounded-tl-lg">Student ID</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>

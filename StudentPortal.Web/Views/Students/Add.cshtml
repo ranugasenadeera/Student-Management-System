@@ -6,7 +6,7 @@
 
 @model StudentPortal.Web.Models.AddStudentViewModel
 
-<div class="container mx-auto my-4 px-4 lg:px-20 flex justify-center">
+<div class="container mt-5 mx-auto my-4 px-4 lg:px-20 flex justify-center">
     <div class="w-full lg:w-9/12 flex flex-wrap lg:flex-nowrap rounded-2xl shadow-2xl">
         <!-- Image section -->
         <div class="w-full lg:w-1/2 hidden lg:block">
@@ -41,7 +41,12 @@
                     <label class="form-check-label text-gray-700" for="Subscribed">Subscribed</label>
                 </div>
                 <div class="my-4 flex justify-center">
-                    <button type="submit" class="uppercase text-sm font-bold tracking-wide bg-blue-600 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline">Submit</button>
+                    <button type="submit" class="uppercase border-1 border-gray-600 text-gray-600 py-3 px-4 rounded-3 flex items-center hover:bg-gray-600 hover:text-white transition duration-300">
+                        Submit
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </button>
                 </div>
             </form>
         </div>
